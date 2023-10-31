@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/aryanbahl/Downloads/cs225-Nussinov/code/tests",
+      "program": "/Users/aryanbahl/Downloads/cs225-Nussinov/code/tests/build/Debug/outDebug"
+    }
+  ]
+}
