@@ -33,3 +33,8 @@ This is the main dynamic programming function that calls the helper "calculateSc
 @return -- an std::string representing the secondary structure using "*" and "()"
 ```
 This function is called recursively to determine the traceback of the maximum calculated score of the dynamic programming table, located at the top right corner. The returned string is the most commonly used format of the Nussinov algorithm, which uses "()" to designate which nucleotides are bound to each other. The last test case checks to see if this function is correctly implemented by comparing the expected secondary structure output with the result from this function, especially on a larger RNA sequence. 
+
+**We will continue to write more test cases to ensure that all edge cases are taken care of!**
+
+## Data Description
+Our test datasets were manually constructed to guarantee that expected output for each test case was correct. 
