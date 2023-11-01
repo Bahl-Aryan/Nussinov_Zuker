@@ -37,4 +37,4 @@ This function is called recursively to determine the traceback of the maximum ca
 **We will continue to write more test cases to ensure that all possible edge cases are taken care of!**
 
 ## Data Description
-Our test datasets were manually constructed to guarantee that expected output for each test case was correct. The actual datasets stored in `/data` consist of arbitrary RNA strands represented as strings of the letter(s) AUCG that we will perform the Nussinov algorithm on. Potential test cases would involve actual RNA strands pulled from reputable sources through simple-copy pasting. 
+Our test datasets were manually constructed to guarantee that expected output for each test case was correct. The actual datasets stored in `/data` consist of arbitrary RNA strands represented as strings of the letter(s) AUCG that we will perform the Nussinov algorithm on. Potential datasets would involve actual RNA strands pulled from reputable sources through simple-copy pasting. 
