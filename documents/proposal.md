@@ -41,6 +41,8 @@ This function is called recursively to determine the traceback of the maximum ca
 ```
 This is the cumulative function of the creating the dynamic table and running the traceback, returning the string generated from the traceback function. Our proposed test 4 is used to check if all the moving parts, from calculating an individual index score to generating the backtrace, mesh properly. By passing this test case, we show that the overall algorithm is correctly implemented, including the transitions between helper methods.
 
+*We may implement class 'Nussinov' to avoid unneccessary repetition of variables, depending on readability and efficiency of code*
+
 **We will continue to write more test cases to ensure that all possible edge cases are taken care of!**
 
 ## Data Description
