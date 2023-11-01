@@ -27,7 +27,7 @@ This is the main dynamic programming function that calls the helper "calculateSc
 
 3. `std::string traceback(int i, int j, std::vector<std::vector<int>> dpTable, std::string rnaStrand)`
 ```
-@param start/end -- designate the starting indices for the Nussinov algorithm (typically the first and last character of the RNA sequence)
+@param i/j -- designate the starting indices for the Nussinov algorithm (typically the first and last character of the RNA sequence)
 @param dpTable -- the completed dynamic programming table created through the "createDPTable" function that stores all the maximum scores
 @param rnaStrand -- the RNA sequence to be analyzed for secondary structure
 @return -- an std::string representing the secondary structure using "*" and "()"
