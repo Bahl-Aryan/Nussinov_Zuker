@@ -17,7 +17,7 @@ TEST_CASE("Correct DP Table") {
     std::string rnaStrand = "data/trivial_1.txt";
     std::vector<std::vector<int>> res_table = createDPTable(rnaStrand);
     int expected_score = 1;
-    int res_score = calculateScore(1, 2, rnaStrand, res_table);
+    int res_score = calculateScore(1, 2, rnaStrand, expected_table);
     REQUIRE(expected_table == res_table);
     REQUIRE(res_score == expected_score);
 }
@@ -44,12 +44,12 @@ TEST_CASE("Correct DP Table 2") {
     int expected_score = 3;
     std::string rnaStrand = "data/trivial_1.txt";
     std::vector<std::vector<int>> res_table = createDPTable(rnaStrand);
-    int expected_score = 1;
-    int res_score = calculateScore(1, 6, rnaStrand, res_table);
+    int expected_calc_score = 2;
+    int res_calc_score = calculateScore(1, 7, rnaStrand, res_table);
     
     REQUIRE(res_table[0, rnaStrand.length() - 1] == expected_score);
     REQUIRE(expected_table == res_table);
-    REQUIRE(res_score == expected_score);
+    REQUIRE(res_calc_score == expected_calc_score);
 }
 
 /*
@@ -58,8 +58,13 @@ TEST_CASE("Correct DP Table 2") {
 */
 
 TEST_CASE("Correct Traceback") {
-    std::vector<std::vector<int>> expected_table(4, std::vector<int>(4));
-    //TODO: initalize the expected table with the right values
+    std::vector<std::vector<int>> expected_table({
+        {0, 1, 1, 2},
+        {0, 0, 1, 1},
+        {0, 0, 0, 1},
+        {0, 0, 0, 0}
+    });
+
     std::string rnaStrand = "data/trivial_1.txt";
     std::string expected_string = "(())";
     std::string res_string = traceback(0, 3, expected_table, rnaStrand);
@@ -72,7 +77,7 @@ TEST_CASE("Correct Traceback") {
 
 TEST_CASE("Correct Nussinov") {
     std::string rnaStrand = "data/trivial_3.txt";
-    std::string expected_string = "((((((....)))))(((((....)))))(((((....)))))(((((....)))))(((((....)))))";
+    std::string expected_string = "((((((****)))))(((((****)))))(((((****)))))(((((****)))))(((((****)))))";
     std::string res_string = nussinov(rnaStrand);
     REQUIRE(res_string == expected_string);
 }
