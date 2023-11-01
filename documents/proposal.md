@@ -7,7 +7,7 @@ To assist with understanding and writing the algorithm, the wikipedia page for N
 When implemented properly, Nussinov's algorithm helps provide a basic prediction for RNA secondary structure using dynamic programming and backtracing. The dynamic table is filled out finding the maximum scores between two indices (RNA nucleotides), and the backtrace is determined by recursing through the dynamic table and appending indices to a list. This list can then be read to produce a secondary structure prediction in the format of "*" and "(".
 
 ## Function I/O
-As mentioned in the summary, there are two main steps to this program: filling out the dynamic table and reading/writing the backtrace. However, it would be beneficial to create a helper methods to make the code more readable.
+As mentioned in the summary, there are two main steps to this program: filling out the dynamic table and reading/writing the backtrace. However, it would be beneficial to create some helper methods to make the code more readable.
 
 1. `int calculateScore(int A, int B, std::string rnaStrand, std::vector<std::vector<int>> & dpTable)`
 ```
@@ -33,6 +33,13 @@ This is the main dynamic programming function that calls the helper "calculateSc
 @return -- an std::string representing the secondary structure using "*" and "()"
 ```
 This function is called recursively to determine the traceback of the maximum calculated score of the dynamic programming table, located at the top right corner. The returned string is the most commonly used format of the Nussinov algorithm, which uses "()" to designate which nucleotides are bound to each other. Our proposed test cases (3 and 4) check this functions implementation through both a pre-determined table and through the full algorithm (assuming the previous test cases for correctly implemented tables pass). By passing both test cases, we demonstrate the algorithms correctness on various table sizes and sequences.
+
+4. `std::string nussinov(std::string rnaStrand)`
+```
+@param rnaStrand -- the RNA sequence to be pushed through the cumulative algorithm
+@return -- std::string representing the secondary structure
+```
+This is the cumulative function of the creating the dynamic table and running the traceback, returning the string generated from the traceback function. Our proposed test 4 is used to check if all the moving parts, from calculating an individual index score to generating the backtrace, mesh properly. By passing this test case, we show that the overall algorithm is correctly implemented, including the transitions between helper methods.
 
 **We will continue to write more test cases to ensure that all possible edge cases are taken care of!**
 
