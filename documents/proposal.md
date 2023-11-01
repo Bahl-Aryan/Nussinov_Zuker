@@ -16,14 +16,14 @@ As mentioned in the summary, there are two main steps to this program: filling o
 @param dpTable -- this is the dynamic programming table that will hold all the maximum scores at given indices
 @return -- an int describing the max score between these indices
 ```
-This helper function will determine the maximum score at two indices by taking in two "int" params for the indices, the RNA sequence to be analyzed, and the dynamic programming table that will be filled in. The maximum score is returned by finding the maximum score between all the possible subsequences between the given indices through the dynamic table.
+This helper function will determine the maximum score at two indices by taking in two "int" params for the indices, the RNA sequence to be analyzed, and the dynamic programming table that will be filled in. The maximum score is returned by finding the maximum score between all the possible subsequences between the given indices through the dynamic table. Our proposed tests (1 and 2) check to see if this function correctly determines the calculated score at a given index with two different RNA strand inputs. Test 1 checks this condition on the pre-determined table, while Test 2 tests this function on the resulting table. Together, if the function passes, we can be sure the function is implemented correctly.
 
 2. `std::vector<std::vector<int>> createDPTable(std::string rnaStrand)`
 ```
 @param rnaStrand -- the string representation of the RNA sequence to be analyzed
 @return -- a table created as a std::vector<std::vector<int>> that logs all the maximum scores
 ```
-This is the main dynamic programming function that calls the helper "calculateScore" method at every pair of indices. Storing the maximum scores allows for easy access to previously calculated scores, instead of having to recalculate them every iteration. This function will first initialize the entire NxN "matrix" (where N is the length of the passed rnaStrand) with 0s, and will then fill the matrix in a diagonal manner. The first two test cases implemented check to see if the "calculateScore" and "createDPTable" are correctly implemented by checking to see if the final score is as expected, along with the formed DP Table.
+This is the main dynamic programming function that calls the helper "calculateScore" method at every pair of indices. Storing the maximum scores allows for easy access to previously calculated scores, instead of having to recalculate them every iteration. This function will first initialize the entire NxN "matrix" (where N is the length of the passed rnaStrand) with 0s, and will then fill the matrix in a diagonal manner. The first two test cases implemented check to see if the "createDPTable" is correctly implemented by checking to see if the final score is as expected, along with the comparing the created DP Table. The tables are created through various RNA strand lengths, so passing both cases indicates that the table contains the right maximum score while also being populated correctly.
 
 3. `std::string traceback(int start, int end, std::vector<std::vector<int>> dpTable, std::string rnaStrand)`
 ```
@@ -32,9 +32,9 @@ This is the main dynamic programming function that calls the helper "calculateSc
 @param rnaStrand -- the RNA sequence to be analyzed for secondary structure
 @return -- an std::string representing the secondary structure using "*" and "()"
 ```
-This function is called recursively to determine the traceback of the maximum calculated score of the dynamic programming table, located at the top right corner. The returned string is the most commonly used format of the Nussinov algorithm, which uses "()" to designate which nucleotides are bound to each other. The last test case checks to see if this function is correctly implemented by comparing the expected secondary structure output with the result from this function, especially on a larger RNA sequence. 
+This function is called recursively to determine the traceback of the maximum calculated score of the dynamic programming table, located at the top right corner. The returned string is the most commonly used format of the Nussinov algorithm, which uses "()" to designate which nucleotides are bound to each other. Our proposed test cases (3 and 4) check this functions implementation through both a pre-determined table and through the full algorithm (assuming the previous test cases for correctly implemented tables pass). By passing both test cases, we demonstrate the algorithms correctness on various table sizes and sequences.
 
-**We will continue to write more test cases to ensure that all edge cases are taken care of!**
+**We will continue to write more test cases to ensure that all possible edge cases are taken care of!**
 
 ## Data Description
 Our test datasets were manually constructed to guarantee that expected output for each test case was correct. The actual datasets stored in `/data` consist of arbitrary RNA strands represented as strings of the letter(s) AUCG that we will perform the Nussinov algorithm on. Each strand is listed in a separate Data file with the hopes that we can potentially develop a script that can parse RNA strands from reputable data sources on the web and perform our version of the algorithm on them to test their folding.
