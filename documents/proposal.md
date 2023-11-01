@@ -25,9 +25,9 @@ This helper function will determine the maximum score at two indices by taking i
 ```
 This is the main dynamic programming function that calls the helper "calculateScore" method at every pair of indices. Storing the maximum scores allows for easy access to previously calculated scores, instead of having to recalculate them every iteration. This function will first initialize the entire NxN "matrix" (where N is the length of the passed rnaStrand) with 0s, and will then fill the matrix in a diagonal manner. The first two test cases implemented check to see if the "createDPTable" is correctly implemented by checking to see if the final score is as expected, along with the comparing the created DP Table. The tables are created through various RNA strand lengths, so passing both cases indicates that the table contains the right maximum score while also being populated correctly.
 
-3. `std::string traceback(int start, int end, std::vector<std::vector<int>> dpTable, std::string rnaStrand)`
+3. `std::string traceback(int i, int j, std::vector<std::vector<int>> dpTable, std::string rnaStrand)`
 ```
-@param start/end -- designate the starting indices for the Nussinov algorithm (generally the first and last character of the RNA sequence)
+@param start/end -- designate the starting indices for the Nussinov algorithm (typically the first and last character of the RNA sequence)
 @param dpTable -- the completed dynamic programming table created through the "createDPTable" function that stores all the maximum scores
 @param rnaStrand -- the RNA sequence to be analyzed for secondary structure
 @return -- an std::string representing the secondary structure using "*" and "()"
