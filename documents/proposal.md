@@ -1,5 +1,5 @@
 ## Academic Reference
-The algorithm that we are proposing to implement is Nussinov's Algorithm for predicting RNA secondary structure, as seen in the following publications: (https://epubs.siam.org/doi/10.1137/0135006) and (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC350273/). 
+The algorithm that is being implemented is Nussinov's Algorithm for predicting RNA secondary structure, as seen in the following publications: (https://epubs.siam.org/doi/10.1137/0135006) and (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC350273/). 
 
 To assist with understanding and writing the algorithm, the wikipedia page for Nussinov's algorithm provides the necessary pseudocode (https://en.wikipedia.org/wiki/Nussinov_algorithm)
 
@@ -41,9 +41,9 @@ This function is called recursively to determine the traceback of the maximum ca
 ```
 This is the cumulative function of the creating the dynamic table and running the traceback, returning the string generated from the traceback function. Our proposed test 4 is used to check if all the moving parts, from calculating an individual index score to generating the backtrace, mesh properly. By passing this test case, we show that the overall algorithm is correctly implemented, including the transitions between helper methods.
 
-*We may implement class 'Nussinov' to avoid unneccessary repetition of variables, depending on readability and efficiency of code*
+*May implement class 'Nussinov' to avoid unneccessary repetition of variables, depending on readability and efficiency of code*
 
-**We will continue to write more test cases to ensure that all possible edge cases are taken care of!**
+**Will continue to write more test cases to ensure that all possible edge cases are taken care of!**
 
 ## Data Description
-Our test datasets were manually constructed to guarantee that expected output for each test case was correct. The actual datasets stored in `/data` consist of arbitrary RNA strands represented as strings of the letter(s) AUCG that we will perform the Nussinov algorithm on. Potential datasets would involve actual RNA strands pulled from reputable sources through simple-copy pasting. 
+Test datasets were manually constructed to guarantee that expected output for each test case was correct. The actual datasets stored in `/data` consist of arbitrary RNA strands represented as strings of the letter(s) AUCG that we will perform the Nussinov algorithm on. Potential datasets would involve actual RNA strands pulled from reputable sources through simple-copy pasting. 
